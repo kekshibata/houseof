@@ -11,7 +11,6 @@ const BlogPage = ({ data }) => (
     <h1>{data.microcmsBlog.title}</h1>
     <div dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
   </Layout>
-
 );
 
 export default BlogPage;
