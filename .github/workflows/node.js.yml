@@ -25,9 +25,8 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: yarn install, build
+    - name: yarn build
       run: |
-           yarn install
            yarn build
     - name: deploy to Firebase Hosting
       uses: w9jds/firebase-action@master
