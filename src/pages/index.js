@@ -1,24 +1,24 @@
-import * as React from "react"
-import {graphql, Link} from "gatsby"
+import * as React from 'react';
+import { graphql, Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
-const IndexPage = ({data}) => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <h1>Hello World</h1>
     <ul>
-      {data.allMicrocmsBlog.edges.map(({node})=>(
+      {data.allMicrocmsBlog.edges.map(({ node }) => (
         <li key={node.blogId}>
           <Link to={`/blog/${node.blogId}`}>{node.title}</Link>
         </li>
       ))}
     </ul>
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query{
@@ -31,4 +31,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;
