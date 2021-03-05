@@ -13,6 +13,8 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
+    'gatsby-plugin-typescript',
+    'gatsby-plugin-typegen',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -55,6 +57,14 @@ module.exports = {
             cache: true,
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typescript',
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: 'jsx', // defaults to "React"
+        allExtensions: true, // defaults to false
       },
     },
     {

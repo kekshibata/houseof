@@ -12,6 +12,8 @@
     "gatsby-plugin-offline": "^4.0.0",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-sharp": "^3.0.0",
+    "gatsby-plugin-typegen": "^2.2.4",
+    "gatsby-plugin-typescript": "^3.0.0",
     "gatsby-source-filesystem": "^3.0.0",
     "gatsby-source-microcms": "^1.0.1",
     "gatsby-transformer-sharp": "^3.0.0",
@@ -27,7 +29,8 @@
     "eslint-config-react-app": "^6.0.0",
     "firebase-tools": "^9.5.0",
     "gatsby-plugin-prettier-eslint": "^1.0.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1"
   },
   "keywords": [
     "gatsby"
