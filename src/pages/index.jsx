@@ -8,7 +8,7 @@ import ToggleButton from '../components/atoms/ToggleButton';
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <ToggleButton />
+    <ToggleButton open={false} />
     <h1>Hello World</h1>
     <ul>
       {data.allMicrocmsBlog.edges.map(({ node }) => (
