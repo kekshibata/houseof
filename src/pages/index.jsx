@@ -3,10 +3,12 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import ToggleButton from '../components/atoms/ToggleButton';
 
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
+    <ToggleButton />
     <h1>Hello World</h1>
     <ul>
       {data.allMicrocmsBlog.edges.map(({ node }) => (
