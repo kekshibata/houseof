@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@animated-burgers/burger-squeeze": "^1.1.2",
     "autoprefixer": "^10.2.5",
+    "classnames": "^2.2.6",
     "gatsby": "^3.0.0",
     "gatsby-plugin-gatsby-cloud": "^2.0.0",
     "gatsby-plugin-image": "^1.0.0",
