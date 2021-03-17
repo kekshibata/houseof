@@ -2,7 +2,7 @@
 
 // 1. import `extendTheme` function
 import { extendTheme } from '@chakra-ui/react';
-import { createBreakPoints } from '@chakra-ui/theme-tools';
+import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 // Container
 import Container from './components/container';
@@ -15,7 +15,7 @@ import sizes from './foundations/sizes';
 import colors from './foundations/colors';
 
 // custom breakpoints
-breakpoints = createBreakPoints({
+const breakpoints = createBreakpoints({
   sm: '640px',
   md: '768px',
   lg: '1024px',
