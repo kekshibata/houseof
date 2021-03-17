@@ -4,9 +4,6 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-// React Component
-// don't forget the styles
-
 const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
