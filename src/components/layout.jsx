@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import Footer from './footer';
+import { ChakraHelpersProvider } from '../context/chakra-helpers-context';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,17 +26,11 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || 'Title'} />
-      <div
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0 1.0875rem 1.45rem',
-        }}
-      >
+      <ChakraHelpersProvider>
+        <Header />
         <main>{children}</main>
         <Footer />
-      </div>
+      </ChakraHelpersProvider>
     </>
   );
 };
