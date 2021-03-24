@@ -3356,47 +3356,47 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type userstakamatsutamonkokishibatahouseofsrcpagesindexJsx165559843QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsBlog, 'blogId' | 'title'> }> } };
+type userstakamatsutamonkokishibatahouseofsrcpagesindexJsx165559843Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsBlog, 'blogId' | 'title'> }> } };
 
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_2_Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
-
-type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+type userstakamatsutamonkokishibatahouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_3_Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
+type userstakamatsutamonkokishibatahouseofsrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
-type Unnamed_4_QueryVariables = Exact<{
+type userstakamatsutamonkokishibatahouseofsrcpageswritersindexJsx2881809828QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type userstakamatsutamonkokishibatahouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
+
+type userstakamatsutamonkokishibatahouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type Unnamed_4_Query = { readonly microcmsBlog: Maybe<(
+type userstakamatsutamonkokishibatahouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511Query = { readonly microcmsBlog: Maybe<(
     Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
     & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>> }
   )> };
 
-type Unnamed_5_QueryVariables = Exact<{
+type userstakamatsutamonkokishibatahouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type Unnamed_5_Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
+type userstakamatsutamonkokishibatahouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
 
 type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteTitleQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-type Unnamed_6_QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_6_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
