@@ -59,7 +59,7 @@ const Header = () => {
               <Container>
 
                 <Navigation>
-                  <Menu>
+                  <Menu placement="bottom">
                     <MenuButton>
                       Categories
                     </MenuButton>
