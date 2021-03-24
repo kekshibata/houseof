@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Text,
   Button,
   Drawer,
   DrawerBody,
@@ -10,6 +11,12 @@ import {
   Stack,
   useColorModeValue,
   useDisclosure,
+  Box,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react';
 import { FiMenu } from '@react-icons/all-files/fi/FiMenu';
 import Navigation from './navigation';
@@ -37,15 +44,35 @@ const MobileMenu = () => {
                 as="nav"
                 direction="column"
                 fontSize="lg"
-                alignItems="center"
+                /* alignItems="center"
                 sx={{
                   'a.active': {
                     fontWeight: 'medium',
                     color: linkColor,
                   },
-                }}
+                }} */
               >
-                <Navigation />
+                <Navigation>
+                  <Accordion allowMultiple>
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box flex="1" textAlign="left">
+                          <Text fontSize="lg">
+                            Categories
+                          </Text>
+                        </Box>
+                        <AccordionIcon />
+                      </AccordionButton>
+
+                      <AccordionPanel pb={4}>
+                        Test Category
+                      </AccordionPanel>
+                      <AccordionPanel pb={4}>
+                        Test Category 2
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                </Navigation>
               </Stack>
             </DrawerBody>
           </DrawerContent>

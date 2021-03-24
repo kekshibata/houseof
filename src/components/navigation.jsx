@@ -14,11 +14,6 @@ const navigationlinks = [
     pActive: false,
   },
   {
-    name: 'Categories',
-    slug: '/categories',
-    pActive: false,
-  },
-  {
     name: 'Writers',
     slug: '/writers',
     pActive: false,
@@ -26,7 +21,7 @@ const navigationlinks = [
 
 ];
 
-const Navigation = () => {
+const Navigation = ({ children }) => {
   const linkcolor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
@@ -36,6 +31,7 @@ const Navigation = () => {
           {n.name}
         </Link>
       ))}
+      {children}
     </Stack>
   );
 };
