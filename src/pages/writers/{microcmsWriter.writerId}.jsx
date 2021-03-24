@@ -18,7 +18,7 @@ const WriterPage = ({ data }) => {
         <Box>
           <Heading color={headingColor}>{data.microcmsWriter.name}</Heading>
           <Text>{data.microcmsWriter.bio}</Text>
-          <Link to={`https://twitter.com/${data.microcmsWriter.twitter}`} isExternal>twitter</Link>
+          <Link href={`https://twitter.com/${data.microcmsWriter.twitter}`} isExternal>twitter</Link>
         </Box>
       </Container>
     </Layout>

@@ -4,6 +4,10 @@ import {
   Container,
   useColorModeValue,
   useMediaQuery,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from '@chakra-ui/react';
 import Link from './link';
 import Navigation from './navigation';
@@ -31,7 +35,7 @@ const Header = () => {
       >
         <Container
           display="grid"
-          gridTemplateColumns={['1fr 1fr', '1fr auto 1fr']}
+          gridTemplateColumns="1fr 1fr"
         >
           <Link
             to="/"
@@ -52,7 +56,23 @@ const Header = () => {
             <MobileMenu />
           ) : (
             <>
-              <Navigation />
+              <Container>
+
+                <Navigation>
+                  <Menu placement="bottom">
+                    <MenuButton>
+                      Categories
+                    </MenuButton>
+                    <MenuList>
+                      <MenuItem>Download</MenuItem>
+                      <MenuItem>Create a Copy</MenuItem>
+                      <MenuItem>Mark as Draft</MenuItem>
+                      <MenuItem>Delete</MenuItem>
+                      <MenuItem>Attend a Workshop</MenuItem>
+                    </MenuList>
+                  </Menu>
+                </Navigation>
+              </Container>
             </>
           )}
         </Container>
