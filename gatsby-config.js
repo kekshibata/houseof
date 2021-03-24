@@ -79,12 +79,16 @@ module.exports = {
           {
             endpoint: 'writer',
           },
+          {
+            endpoint: 'category',
+          },
         ],
 
       },
     },
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-postcss',
+    '@chakra-ui/gatsby-plugin',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

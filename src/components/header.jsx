@@ -1,42 +1,64 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'gatsby';
+import {
+  Box,
+  Container,
+  useColorModeValue,
+  useMediaQuery,
+} from '@chakra-ui/react';
+import Link from './link';
+import Navigation from './navigation';
+import MobileMenu from './mobile-menu';
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
+const Header = () => {
+  const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
+  const bg = useColorModeValue('bg', 'dark.bg');
+  const logoColor = useColorModeValue('primary', 'dark.primary');
+  const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
+
+  return (
+    <>
+      <Box
+        w="100%"
+        margin={0}
+        as="header"
+        position="fixed"
+        zIndex="docked"
+        height="navigationHeight"
+        display="flex"
+        alignItems="center"
+        bg={bg}
+        sx={{ svg: { height: '24px', width: 'auto' } }}
+      >
+        <Container
+          display="grid"
+          gridTemplateColumns={['1fr 1fr', '1fr auto 1fr']}
         >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: '',
+          <Link
+            to="/"
+            display="flex"
+            alignItems="center"
+            justifySelf="flex-start"
+            color={linkColor}
+            _hover={{
+              textDecoration: 'none',
+              color: logoColor,
+            }}
+          >
+            <Box ml={3} fontWeight="medium" fontSize="xl">
+              GunShooting
+            </Box>
+          </Link>
+          {isSmallerThan640 ? (
+            <MobileMenu />
+          ) : (
+            <>
+              <Navigation />
+            </>
+          )}
+        </Container>
+      </Box>
+    </>
+  );
 };
 
 export default Header;
