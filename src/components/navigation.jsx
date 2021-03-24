@@ -9,13 +9,18 @@ const navigationlinks = [
     pActive: false,
   },
   {
-    name: 'HOME',
-    slug: '/',
+    name: 'About',
+    slug: '/about',
     pActive: false,
   },
   {
-    name: 'HOME',
-    slug: '/',
+    name: 'Categories',
+    slug: '/categories',
+    pActive: false,
+  },
+  {
+    name: 'Writers',
+    slug: '/writers',
     pActive: false,
   },
 
