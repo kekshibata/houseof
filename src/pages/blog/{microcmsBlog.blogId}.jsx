@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { Container, Heading } from '@chakra-ui/react';
 
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
@@ -7,9 +8,11 @@ import SEO from '../../components/seo';
 const BlogPage = ({ data }) => (
   <Layout>
     <SEO title={data.microcmsBlog.title} />
-    <span>{data.microcmsBlog.writer.name}</span>
-    <h1>{data.microcmsBlog.title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
+    <Container py={[16, 20, 28]}>
+      <span>{data.microcmsBlog.writer.name}</span>
+      <Heading>{data.microcmsBlog.title}</Heading>
+      <div id="blog-content" dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
+    </Container>
   </Layout>
 );
 
