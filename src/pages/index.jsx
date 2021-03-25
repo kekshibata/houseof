@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
         {data.allMicrocmsBlog.edges.map(({ node }) => (
           <Box key={node.blogId} p={5} w="100%">
 
-            <Heading as="h3" fontSize="lg" color={headingColor}><Link to={`/blog/${node.blogId}`}>{node.title}</Link></Heading>
+            <Heading as="h3" fontSize="lg" color={headingColor}><Link to={`/${node.category.slug}/${node.blogId}`}>{node.title}</Link></Heading>
 
           </Box>
         ))}
@@ -39,6 +39,9 @@ export const query = graphql`
         node {
           blogId
           title
+          category {
+            slug
+          }
         }
       }
     }
