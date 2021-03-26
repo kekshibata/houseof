@@ -27,6 +27,9 @@ export const query = graphql`
             writer {
                 name
             }
+            category {
+              slug
+            }
         }
     }
 `;
