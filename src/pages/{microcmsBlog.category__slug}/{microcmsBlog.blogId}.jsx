@@ -35,9 +35,12 @@ const BlogPage = ({ data }) => (
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
+
       <span>
-        <Icon as={BsPersonFill} alignSelf="center" />
-        {data.microcmsBlog.writer.name}
+        <Link to={`/writers/${data.microcmsBlog.writer.id}`}>
+          <Icon as={BsPersonFill} alignSelf="center" />
+          {data.microcmsBlog.writer.name}
+        </Link>
       </span>
       <Heading mb={10}>
 
@@ -58,6 +61,7 @@ export const query = graphql`
             body
             writer {
                 name
+                id
             }
             category {
               name

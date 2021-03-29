@@ -3400,14 +3400,14 @@ type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419
         & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug' | 'name' | 'id'>> }
       ) }> } };
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx481779442QueryVariables = Exact<{
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx481779442Query = { readonly microcmsBlog: Maybe<(
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009Query = { readonly microcmsBlog: Maybe<(
     Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
-    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
+    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
   )> };
 
 type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
