@@ -29,7 +29,8 @@ const accordionLinks = [
 ];
 
 const Header = () => {
-  const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
+  var isSmallerThan640 = true;
+  var [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
   const bg = useColorModeValue('bg', 'dark.bg');
   const logoColor = useColorModeValue('primary', 'dark.primary');
   const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
