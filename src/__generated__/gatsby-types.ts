@@ -3365,10 +3365,13 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type userskShibataprojectshouseofsrcpagesindexJsx165559843QueryVariables = Exact<{ [key: string]: never; }>;
+type userskShibataprojectshouseofsrcpagesindexJsx591263698QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userskShibataprojectshouseofsrcpagesindexJsx165559843Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsBlog, 'blogId' | 'title'> }> } };
+type userskShibataprojectshouseofsrcpagesindexJsx591263698Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MicrocmsBlog, 'blogId' | 'title'>
+        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug'>> }
+      ) }> } };
 
 type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3442,15 +3445,5 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type userskShibataprojectshouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511QueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type userskShibataprojectshouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511Query = { readonly microcmsBlog: Maybe<(
-    Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
-    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>> }
-  )> };
 
 }
