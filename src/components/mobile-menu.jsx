@@ -20,6 +20,22 @@ import {
 } from '@chakra-ui/react';
 import { FiMenu } from '@react-icons/all-files/fi/FiMenu';
 import Navigation from './navigation';
+import Link from './link';
+
+const accordionLinks = [
+  {
+    name: 'Test Category',
+    slug: '/test',
+  },
+  {
+    name: '豆知識',
+    slug: '/extra-knowledge',
+  },
+  {
+    name: '攻略',
+    slug: '/strategy',
+  },
+];
 
 const MobileMenu = () => {
   const { isOpen: isOpenMenu, onOpen: onOpenMenu, onClose: onCloseMenu } = useDisclosure();
@@ -44,13 +60,13 @@ const MobileMenu = () => {
                 as="nav"
                 direction="column"
                 fontSize="lg"
-                /* alignItems="center"
+                alignItems="center"
                 sx={{
                   'a.active': {
                     fontWeight: 'medium',
                     color: linkColor,
                   },
-                }} */
+                }}
               >
                 <Navigation>
                   <Accordion allowMultiple>
@@ -63,13 +79,13 @@ const MobileMenu = () => {
                         </Box>
                         <AccordionIcon />
                       </AccordionButton>
-
-                      <AccordionPanel pb={4}>
-                        Test Category
-                      </AccordionPanel>
-                      <AccordionPanel pb={4}>
-                        Test Category 2
-                      </AccordionPanel>
+                      {accordionLinks.map((n) => (
+                        <AccordionPanel key={n.slug}>
+                          <Link to={n.slug} align="center">
+                            {n.name}
+                          </Link>
+                        </AccordionPanel>
+                      ))}
                     </AccordionItem>
                   </Accordion>
                 </Navigation>

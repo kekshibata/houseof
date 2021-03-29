@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Stack, useColorModeValue } from '@chakra-ui/react';
-import { Link } from 'gatsby';
+import Link from './link';
 
 const navigationlinks = [
   {
