@@ -300,14 +300,16 @@ type SitePage = Node & {
 
 type SitePageContext = {
   readonly id: Maybe<Scalars['String']>;
-  readonly blogId: Maybe<Scalars['String']>;
-  readonly _xparams: Maybe<SitePageContext_xparams>;
   readonly writerId: Maybe<Scalars['String']>;
+  readonly _xparams: Maybe<SitePageContext_xparams>;
+  readonly category__slug: Maybe<Scalars['String']>;
+  readonly blogId: Maybe<Scalars['String']>;
 };
 
 type SitePageContext_xparams = {
-  readonly blogId: Maybe<Scalars['String']>;
   readonly writerId: Maybe<Scalars['String']>;
+  readonly category__slug: Maybe<Scalars['String']>;
+  readonly blogId: Maybe<Scalars['String']>;
 };
 
 type ImageFormat =
@@ -570,6 +572,7 @@ type MicrocmsCategory = Node & {
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly revisedAt: Maybe<Scalars['Date']>;
   readonly name: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
   readonly categoryId: Maybe<Scalars['String']>;
 };
 
@@ -720,6 +723,7 @@ type MicrocmsBlogCategory = {
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly revisedAt: Maybe<Scalars['Date']>;
   readonly name: Maybe<Scalars['String']>;
+  readonly slug: Maybe<Scalars['String']>;
 };
 
 
@@ -1144,6 +1148,7 @@ type Query_microcmsCategoryArgs = {
   publishedAt: Maybe<DateQueryOperatorInput>;
   revisedAt: Maybe<DateQueryOperatorInput>;
   name: Maybe<StringQueryOperatorInput>;
+  slug: Maybe<StringQueryOperatorInput>;
   categoryId: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2533,6 +2538,7 @@ type MicrocmsCategoryFieldsEnum =
   | 'publishedAt'
   | 'revisedAt'
   | 'name'
+  | 'slug'
   | 'categoryId';
 
 type MicrocmsCategoryGroupConnection = {
@@ -2554,6 +2560,7 @@ type MicrocmsCategoryFilterInput = {
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly revisedAt: Maybe<DateQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
+  readonly slug: Maybe<StringQueryOperatorInput>;
   readonly categoryId: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2723,6 +2730,7 @@ type MicrocmsBlogCategoryFilterInput = {
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly revisedAt: Maybe<DateQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
+  readonly slug: Maybe<StringQueryOperatorInput>;
 };
 
 type MicrocmsBlogTagsFilterListInput = {
@@ -2875,6 +2883,7 @@ type MicrocmsBlogFieldsEnum =
   | 'category.publishedAt'
   | 'category.revisedAt'
   | 'category.name'
+  | 'category.slug'
   | 'tags'
   | 'tags.id'
   | 'tags.createdAt'
@@ -3356,37 +3365,47 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type userstakamatsutamonkokishibatahouseofsrcpagesindexJsx165559843QueryVariables = Exact<{ [key: string]: never; }>;
+type userskShibataprojectshouseofsrcpagesindexJsx165559843QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userstakamatsutamonkokishibatahouseofsrcpagesindexJsx165559843Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsBlog, 'blogId' | 'title'> }> } };
+type userskShibataprojectshouseofsrcpagesindexJsx165559843Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsBlog, 'blogId' | 'title'> }> } };
 
-type userstakamatsutamonkokishibatahouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type userstakamatsutamonkokishibatahouseofsrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
-
-type userstakamatsutamonkokishibatahouseofsrcpageswritersindexJsx2881809828QueryVariables = Exact<{ [key: string]: never; }>;
+type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userstakamatsutamonkokishibatahouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
+type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
-type userstakamatsutamonkokishibatahouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511QueryVariables = Exact<{
+type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
+
+type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type userstakamatsutamonkokishibatahouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511Query = { readonly microcmsBlog: Maybe<(
+type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
+
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323QueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MicrocmsBlog, 'title' | 'blogId'>
+        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug' | 'name' | 'id'>> }
+      ) }> } };
+
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009Query = { readonly microcmsBlog: Maybe<(
     Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
-    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>> }
+    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
   )> };
-
-type userstakamatsutamonkokishibatahouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type userstakamatsutamonkokishibatahouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
 
 type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3423,5 +3442,15 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type userskShibataprojectshouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511QueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrcpagesblogmicrocmsBlogBlogIdJsx4172083511Query = { readonly microcmsBlog: Maybe<(
+    Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
+    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>> }
+  )> };
 
 }
