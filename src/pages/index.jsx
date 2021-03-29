@@ -1,11 +1,12 @@
 import * as React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import {
   Container, Heading, Box, useColorModeValue,
 } from '@chakra-ui/react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
+import Link from '../components/link';
 
 const IndexPage = ({ data }) => {
   const headingColor = useColorModeValue('black', 'white');
@@ -14,8 +15,7 @@ const IndexPage = ({ data }) => {
 
     <Layout>
       <SEO title="Home" />
-      <Container py={[16, 20, 28]}>
-        <Heading as="h1" color={headingColor}>Hello World</Heading>
+      <Container px={7} py={[16, 20, 28]}>
 
         {data.allMicrocmsBlog.edges.map(({ node }) => (
           <Box key={node.blogId} p={5} w="100%">

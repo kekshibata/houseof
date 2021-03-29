@@ -13,6 +13,21 @@ import Link from './link';
 import Navigation from './navigation';
 import MobileMenu from './mobile-menu';
 
+const accordionLinks = [
+  {
+    name: 'Test Category',
+    slug: '/test',
+  },
+  {
+    name: '豆知識',
+    slug: '/extra-knowledge',
+  },
+  {
+    name: '攻略',
+    slug: '/strategy',
+  },
+];
+
 const Header = () => {
   const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
   const bg = useColorModeValue('bg', 'dark.bg');
@@ -64,11 +79,13 @@ const Header = () => {
                       Categories
                     </MenuButton>
                     <MenuList>
-                      <MenuItem>Download</MenuItem>
-                      <MenuItem>Create a Copy</MenuItem>
-                      <MenuItem>Mark as Draft</MenuItem>
-                      <MenuItem>Delete</MenuItem>
-                      <MenuItem>Attend a Workshop</MenuItem>
+                      {accordionLinks.map((n) => (
+                        <MenuItem key={n.slug}>
+                          <Link to={n.slug}>
+                            {n.name}
+                          </Link>
+                        </MenuItem>
+                      ))}
                     </MenuList>
                   </Menu>
                 </Navigation>

@@ -1,16 +1,48 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Container, Heading } from '@chakra-ui/react';
+import {
+  Container, Heading, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon,
+} from '@chakra-ui/react';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { BsPersonFill } from 'react-icons/bs';
+import { AiFillHome } from 'react-icons/ai';
 
 import Layout from '../../components/layout';
 import SEO from '../../components/seo';
+import Link from '../../components/link';
 
 const BlogPage = ({ data }) => (
+
   <Layout>
     <SEO title={data.microcmsBlog.title} />
-    <Container py={[16, 20, 28]}>
-      <span>{data.microcmsBlog.writer.name}</span>
-      <Heading>{data.microcmsBlog.title}</Heading>
+    <Container px={7} py={[16, 20, 28]}>
+      <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
+        <BreadcrumbItem>
+          <Link to="/">
+
+            <Icon as={AiFillHome} />
+          </Link>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem>
+          <Link to={`/${data.microcmsBlog.category.slug}`}>{data.microcmsBlog.category.name}</Link>
+        </BreadcrumbItem>
+
+        <BreadcrumbItem isCurrentPage>
+          <BreadcrumbLink href="#">
+            {data.microcmsBlog.title.length > 21 ? `${data.microcmsBlog.title.substr(0, 20)}...` : data.microcmsBlog.title }
+
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      </Breadcrumb>
+      <span>
+        <Icon as={BsPersonFill} alignSelf="center" />
+        {data.microcmsBlog.writer.name}
+      </span>
+      <Heading mb={10}>
+
+        {data.microcmsBlog.title}
+      </Heading>
       <div id="blog-content" dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
     </Container>
   </Layout>
@@ -28,6 +60,7 @@ export const query = graphql`
                 name
             }
             category {
+              name
               slug
             }
         }
