@@ -70,7 +70,7 @@ const Header = () => {
           </Link>
           {isSmallerThan640 ? (
             <MobileMenu />
-          ) : (isSmallerThan640 !== null && (
+          ) : (isSmallerThan640 !== null　&& (isSmallerThan640 !== undefined) && (
             <>
               <Container>
 
