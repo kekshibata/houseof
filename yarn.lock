@@ -1574,6 +1574,15 @@
     css-box-model "1.2.1"
     lodash.mergewith "4.6.2"
 
+"@chakra-ui/utils@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/utils/-/utils-1.5.0.tgz#8ba5ac1353d85c7fbdfa843c8023d9a2b4a2915d"
+  integrity sha512-rHLGzAo7cwIF9LkfEFEqtmgZN4/e1kuu5fVO4DrLJHcOA7c+wibrNK8QaplBefpq+b5bnmmznE4YHpXqG8yiCQ==
+  dependencies:
+    "@types/lodash.mergewith" "4.6.6"
+    css-box-model "1.2.1"
+    lodash.mergewith "4.6.2"
+
 "@chakra-ui/visually-hidden@1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@chakra-ui/visually-hidden/-/visually-hidden-1.0.5.tgz#dcbd32a1eacb19e9636d2242e55aca5914dc3011"
