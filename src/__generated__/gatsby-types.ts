@@ -3365,47 +3365,47 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type userskShibataprojectshouseofsrcpagesindexJsx591263698QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userskShibataprojectshouseofsrcpagesindexJsx591263698Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+type Unnamed_1_Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MicrocmsBlog, 'blogId' | 'title'>
         & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug'>> }
       ) }> } };
 
-type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
+type Unnamed_2_Query = { readonly site: Maybe<Pick<Site, 'buildTime'>> };
 
-type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
+type Unnamed_3_Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
 
-type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
+type Unnamed_4_QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
+type Unnamed_4_Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323QueryVariables = Exact<{
+type Unnamed_5_QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+type Unnamed_5_Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
         Pick<MicrocmsBlog, 'title' | 'blogId'>
         & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug' | 'name' | 'id'>> }
       ) }> } };
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
+type Unnamed_6_QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009Query = { readonly microcmsBlog: Maybe<(
+type Unnamed_6_Query = { readonly microcmsBlog: Maybe<(
     Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
     & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
   )> };
@@ -3415,10 +3415,10 @@ type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type SiteTitleQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_7_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+type Unnamed_7_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

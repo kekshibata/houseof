@@ -9,6 +9,7 @@ import {
   MenuList,
   MenuItem,
 } from '@chakra-ui/react';
+import { isBrowser } from '@chakra-ui/utils';
 import Link from './link';
 import Navigation from './navigation';
 import MobileMenu from './mobile-menu';
@@ -69,7 +70,7 @@ const Header = () => {
             </Box>
           </Link>
 
-          {isSmallerThan640 !== null && isSmallerThan640 ? (
+          {isBrowser && isSmallerThan640 ? (
             <MobileMenu />
           ) : (
             <>
