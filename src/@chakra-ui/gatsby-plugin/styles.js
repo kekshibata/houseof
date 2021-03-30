@@ -6,12 +6,12 @@ const styles = {
     body: {
       color: mode('color', 'dark.color')(props),
       bg: mode('bg', 'dark.bg')(props),
+      fontFamily: '-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif',
     },
     // non-chakra elements styles
     '#blog-content': {
       fontSize: '1em',
       fontWeight: 'normal',
-      fontFamily: 'system-ui, sans-serif',
       lineHeight: '2em',
     },
     '#blog-content p': {

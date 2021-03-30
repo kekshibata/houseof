@@ -63,11 +63,12 @@ const Header = () => {
               color: logoColor,
             }}
           >
+
             <Box ml={3} fontWeight="medium" fontSize="xl">
               GunShooting
             </Box>
           </Link>
-          {isSmallerThan640 ? (
+          {isSmallerThan640 === !null ? (
             <MobileMenu />
           ) : (
             <>
@@ -90,7 +91,7 @@ const Header = () => {
                   </Menu>
                 </Navigation>
               </Container>
-              <p>larger than that</p>
+
             </>
           )}
         </Container>
