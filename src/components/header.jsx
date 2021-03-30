@@ -68,9 +68,10 @@ const Header = () => {
               GunShooting
             </Box>
           </Link>
-          {isSmallerThan640 ? (
+
+          {isSmallerThan640 !== null && isSmallerThan640 ? (
             <MobileMenu />
-          ) : (isSmallerThan640 !== null　&& (isSmallerThan640 !== undefined) && (
+          ) : (
             <>
               <Container>
 
@@ -93,8 +94,9 @@ const Header = () => {
               </Container>
 
             </>
-          )
+
           )}
+
         </Container>
       </Box>
     </>

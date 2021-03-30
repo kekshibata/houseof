@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {
   Text,
-  Button,
+  IconButton,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -94,17 +94,15 @@ const MobileMenu = () => {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-      <Button
+      <IconButton
         onClick={onOpenMenu}
         ref={menuRef}
         px={3}
         size="sm"
         aria-label={isOpenMenu ? 'Close menu' : 'Open menu'}
         justifySelf="flex-end"
-        rightIcon={<FiMenu />}
-      >
-        Menu
-      </Button>
+        icon={<FiMenu />}
+      />
     </>
   );
 };
