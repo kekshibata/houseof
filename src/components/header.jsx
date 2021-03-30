@@ -68,9 +68,9 @@ const Header = () => {
               GunShooting
             </Box>
           </Link>
-          {isSmallerThan640 === !null && isSmallerThan640 ? (
+          {isSmallerThan640 ? (
             <MobileMenu />
-          ) : (
+          ) : (isSmallerThan640 === false && (
             <>
               <Container>
 
@@ -93,6 +93,7 @@ const Header = () => {
               </Container>
 
             </>
+          )
           )}
         </Container>
       </Box>
