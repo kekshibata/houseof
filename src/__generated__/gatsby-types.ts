@@ -299,6 +299,7 @@ type SitePage = Node & {
 };
 
 type SitePageContext = {
+  readonly slug: Maybe<Scalars['String']>;
   readonly id: Maybe<Scalars['String']>;
   readonly writerId: Maybe<Scalars['String']>;
   readonly _xparams: Maybe<SitePageContext_xparams>;
@@ -3360,6 +3361,16 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type userskShibataprojectshouseofsrccomponentstemplatescategoryJsx2186162091QueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrccomponentstemplatescategoryJsx2186162091Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MicrocmsBlog, 'blogId' | 'title'>
+        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
+      ) }> }, readonly microcmsCategory: Maybe<Pick<MicrocmsCategory, 'name'>> };
+
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3389,16 +3400,6 @@ type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx6763870
 
 
 type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
-
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323QueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugindexJsx3812419323Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MicrocmsBlog, 'title' | 'blogId'>
-        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug' | 'name' | 'id'>> }
-      ) }> } };
 
 type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
   id: Scalars['String'];
