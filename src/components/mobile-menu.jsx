@@ -56,40 +56,29 @@ const MobileMenu = () => {
             <DrawerCloseButton />
             <DrawerHeader>Menu</DrawerHeader>
             <DrawerBody>
-              <Stack
-                as="nav"
-                direction="column"
-                fontSize="lg"
-                alignItems="center"
-                sx={{
-                  'a.active': {
-                    fontWeight: 'medium',
-                    color: linkColor,
-                  },
-                }}
-              >
-                <Navigation>
-                  <Accordion allowMultiple>
-                    <AccordionItem>
-                      <AccordionButton>
-                        <Box flex="1" textAlign="left">
-                          <Text fontSize="lg">
-                            Categories
-                          </Text>
-                        </Box>
-                        <AccordionIcon />
-                      </AccordionButton>
-                      {accordionLinks.map((n) => (
-                        <AccordionPanel key={n.slug}>
-                          <Link to={n.slug} align="center">
-                            {n.name}
-                          </Link>
-                        </AccordionPanel>
-                      ))}
-                    </AccordionItem>
-                  </Accordion>
-                </Navigation>
-              </Stack>
+
+              <Navigation>
+                <Accordion allowMultiple>
+                  <AccordionItem>
+                    <AccordionButton>
+                      <Box flex="1" textAlign="left">
+                        <Text fontSize="lg">
+                          Categories
+                        </Text>
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                    {accordionLinks.map((n) => (
+                      <AccordionPanel key={n.slug} textAlign="center">
+                        <Link to={n.slug}>
+                          {n.name}
+                        </Link>
+                      </AccordionPanel>
+                    ))}
+                  </AccordionItem>
+                </Accordion>
+              </Navigation>
+
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
@@ -99,7 +88,7 @@ const MobileMenu = () => {
         ref={menuRef}
         px={3}
         size="sm"
-        aria-label={isOpenMenu ? 'Close menu' : 'Open menu'}
+        aria-label="Open menu"
         justifySelf="flex-end"
         icon={<FiMenu />}
       />
