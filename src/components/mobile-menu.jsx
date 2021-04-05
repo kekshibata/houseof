@@ -18,7 +18,7 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from '@chakra-ui/react';
-import { FiMenu } from '@react-icons/all-files/fi/FiMenu';
+import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
 import Navigation from './navigation';
 import Link from './link';
 
@@ -90,7 +90,8 @@ const MobileMenu = () => {
         size="sm"
         aria-label="Open menu"
         justifySelf="flex-end"
-        icon={<FiMenu />}
+        variant="ghost"
+        icon={<AiOutlineMenu />}
       />
     </>
   );

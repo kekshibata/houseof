@@ -29,6 +29,63 @@ const accordionLinks = [
   },
 ];
 
+const HeaderContent = () => {
+  const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
+  const bg = useColorModeValue('bg', 'dark.bg');
+  const logoColor = useColorModeValue('primary', 'dark.primary');
+  const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
+
+  return (
+    <Container
+      display="grid"
+      gridTemplateColumns="1fr 1fr"
+    >
+      <Link
+        to="/"
+        display="flex"
+        alignItems="center"
+        justifySelf="flex-start"
+        color={linkColor}
+        _hover={{
+          textDecoration: 'none',
+          color: logoColor,
+        }}
+      >
+        <Box ml={3} fontWeight="medium" fontSize="xl">
+          GunShooting
+        </Box>
+      </Link>
+
+      {isBrowser && isSmallerThan640 ? (
+        <MobileMenu />
+      ) : (
+        <>
+
+          <Navigation>
+            <Menu placement="bottom">
+              <MenuButton>
+                Categories
+              </MenuButton>
+              <MenuList>
+                {accordionLinks.map((n) => (
+                  <MenuItem key={n.slug}>
+                    <Link to={n.slug}>
+                      {n.name}
+                    </Link>
+                  </MenuItem>
+                ))}
+              </MenuList>
+            </Menu>
+          </Navigation>
+
+        </>
+
+      )}
+
+    </Container>
+  );
+};
+
 const Header = () => {
   const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
   const bg = useColorModeValue('bg', 'dark.bg');
@@ -47,58 +104,12 @@ const Header = () => {
         display="flex"
         alignItems="center"
         bg={bg}
+        shadow="sm"
+        borderTop="6px solid"
+        borderTopColor="red.500"
         sx={{ svg: { height: '24px', width: 'auto' } }}
       >
-        <Container
-          display="grid"
-          gridTemplateColumns="1fr 1fr"
-        >
-          <Link
-            to="/"
-            display="flex"
-            alignItems="center"
-            justifySelf="flex-start"
-            color={linkColor}
-            _hover={{
-              textDecoration: 'none',
-              color: logoColor,
-            }}
-          >
-
-            <Box ml={3} fontWeight="medium" fontSize="xl">
-              GunShooting
-            </Box>
-          </Link>
-
-          {isBrowser && isSmallerThan640 ? (
-            <MobileMenu />
-          ) : (
-            <>
-              <Container>
-
-                <Navigation>
-                  <Menu placement="bottom">
-                    <MenuButton>
-                      Categories
-                    </MenuButton>
-                    <MenuList>
-                      {accordionLinks.map((n) => (
-                        <MenuItem key={n.slug}>
-                          <Link to={n.slug}>
-                            {n.name}
-                          </Link>
-                        </MenuItem>
-                      ))}
-                    </MenuList>
-                  </Menu>
-                </Navigation>
-              </Container>
-
-            </>
-
-          )}
-
-        </Container>
+        <HeaderContent />
       </Box>
     </>
   );
