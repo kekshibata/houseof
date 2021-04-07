@@ -10,7 +10,6 @@ const styles = {
     },
     // non-chakra elements styles
     '#blog-content': {
-      fontSize: '1em',
       fontWeight: 'normal',
       lineHeight: '2em',
     },

@@ -1744,6 +1744,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/dela-gothic-one@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/dela-gothic-one/-/dela-gothic-one-4.2.1.tgz#59608dda0c1888d330238d17fa6677030c5ca892"
+  integrity sha512-VcKDybr8U+e6UdhC/bzNTjg2eBYTlcJElQV9edt1bEeliCu+qU7aCpqFHzHpac4Hx+skh9vZp6UXJxZszVG/cw==
+
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@fullhuman/postcss-purgecss/-/postcss-purgecss-3.1.3.tgz#47af7b87c9bfb3de4bc94a38f875b928fffdf339"

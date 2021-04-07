@@ -1,18 +1,18 @@
-import * as React from 'react';
 import {
   Box,
   Container,
-  useColorModeValue,
-  useMediaQuery,
+
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
+
+  MenuItem, MenuList, useColorModeValue,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { isBrowser } from '@chakra-ui/utils';
+import * as React from 'react';
 import Link from './link';
-import Navigation from './navigation';
 import MobileMenu from './mobile-menu';
+import Navigation from './navigation';
 
 const accordionLinks = [
   {
@@ -39,6 +39,7 @@ const HeaderContent = () => {
     <Container
       display="grid"
       gridTemplateColumns="1fr 1fr"
+      maxW="900px"
     >
       <Link
         to="/"
@@ -51,7 +52,7 @@ const HeaderContent = () => {
           color: logoColor,
         }}
       >
-        <Box ml={3} fontWeight="medium" fontSize="xl">
+        <Box ml={3} fontWeight="medium" fontSize="2xl" fontFamily='"Dela Gothic One", cursive'>
           GunShooting
         </Box>
       </Link>

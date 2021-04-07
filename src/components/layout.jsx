@@ -13,6 +13,8 @@ import Header from './header';
 import Footer from './footer';
 import { ChakraHelpersProvider } from '../context/chakra-helpers-context';
 
+import '@fontsource/dela-gothic-one';
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
