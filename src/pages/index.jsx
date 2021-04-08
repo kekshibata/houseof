@@ -3,10 +3,12 @@ import { graphql } from 'gatsby';
 import {
   Container, Heading, Box, useColorModeValue,
 } from '@chakra-ui/react';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Link from '../components/link';
+import BlogCard from '../components/blog-card';
 
 const IndexPage = ({ data }) => {
   const headingColor = useColorModeValue('black', 'white');
@@ -18,11 +20,8 @@ const IndexPage = ({ data }) => {
       <Container px={7} py={[16, 20, 28]}>
 
         {data.allMicrocmsBlog.edges.map(({ node }) => (
-          <Box key={node.blogId} p={5} w="100%">
 
-            <Heading as="h3" fontSize="lg" color={headingColor}><Link to={`/${node.category.slug}/${node.blogId}`}>{node.title}</Link></Heading>
-
-          </Box>
+          <BlogCard key={node.blogId} imageUrl={node.image?.url} writer={node.writer.name} slug={node.category.slug} blogId={node.blogId} title={node.title} description={node.description} />
         ))}
 
       </Container>
@@ -37,10 +36,18 @@ export const query = graphql`
     allMicrocmsBlog{
       edges {
         node {
-          blogId
-          title
           category {
             slug
+            name
+          }
+          image {
+            url
+          }
+          blogId
+          title
+          description
+          writer {
+            name
           }
         }
       }

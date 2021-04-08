@@ -301,16 +301,16 @@ type SitePage = Node & {
 type SitePageContext = {
   readonly slug: Maybe<Scalars['String']>;
   readonly id: Maybe<Scalars['String']>;
-  readonly writerId: Maybe<Scalars['String']>;
-  readonly _xparams: Maybe<SitePageContext_xparams>;
   readonly category__slug: Maybe<Scalars['String']>;
   readonly blogId: Maybe<Scalars['String']>;
+  readonly _xparams: Maybe<SitePageContext_xparams>;
+  readonly writerId: Maybe<Scalars['String']>;
 };
 
 type SitePageContext_xparams = {
-  readonly writerId: Maybe<Scalars['String']>;
   readonly category__slug: Maybe<Scalars['String']>;
   readonly blogId: Maybe<Scalars['String']>;
+  readonly writerId: Maybe<Scalars['String']>;
 };
 
 type ImageFormat =
@@ -672,11 +672,13 @@ type MicrocmsBlog = Node & {
   readonly publishedAt: Maybe<Scalars['Date']>;
   readonly revisedAt: Maybe<Scalars['Date']>;
   readonly title: Maybe<Scalars['String']>;
+  readonly image: Maybe<MicrocmsBlogImage>;
   readonly body: Maybe<Scalars['String']>;
   readonly category: Maybe<MicrocmsBlogCategory>;
   readonly tags: Maybe<ReadonlyArray<Maybe<MicrocmsBlogTags>>>;
   readonly writer: Maybe<MicrocmsBlogWriter>;
   readonly blogId: Maybe<Scalars['String']>;
+  readonly description: Maybe<Scalars['String']>;
   readonly gatsbyPath: Maybe<Scalars['String']>;
 };
 
@@ -715,6 +717,12 @@ type MicrocmsBlog_revisedAtArgs = {
 
 type MicrocmsBlog_gatsbyPathArgs = {
   filePath: Maybe<Scalars['String']>;
+};
+
+type MicrocmsBlogImage = {
+  readonly url: Maybe<Scalars['String']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
 };
 
 type MicrocmsBlogCategory = {
@@ -876,15 +884,15 @@ type SitePlugin = Node & {
 };
 
 type SitePluginPluginOptions = {
+  readonly base64Width: Maybe<Scalars['Int']>;
+  readonly stripMetadata: Maybe<Scalars['Boolean']>;
+  readonly defaultQuality: Maybe<Scalars['Int']>;
+  readonly failOnError: Maybe<Scalars['Boolean']>;
   readonly isTSX: Maybe<Scalars['Boolean']>;
   readonly jsxPragma: Maybe<Scalars['String']>;
   readonly allExtensions: Maybe<Scalars['Boolean']>;
   readonly name: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
-  readonly base64Width: Maybe<Scalars['Int']>;
-  readonly stripMetadata: Maybe<Scalars['Boolean']>;
-  readonly defaultQuality: Maybe<Scalars['Int']>;
-  readonly failOnError: Maybe<Scalars['Boolean']>;
   readonly short_name: Maybe<Scalars['String']>;
   readonly start_url: Maybe<Scalars['String']>;
   readonly background_color: Maybe<Scalars['String']>;
@@ -1197,11 +1205,13 @@ type Query_microcmsBlogArgs = {
   publishedAt: Maybe<DateQueryOperatorInput>;
   revisedAt: Maybe<DateQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
+  image: Maybe<MicrocmsBlogImageFilterInput>;
   body: Maybe<StringQueryOperatorInput>;
   category: Maybe<MicrocmsBlogCategoryFilterInput>;
   tags: Maybe<MicrocmsBlogTagsFilterListInput>;
   writer: Maybe<MicrocmsBlogWriterFilterInput>;
   blogId: Maybe<StringQueryOperatorInput>;
+  description: Maybe<StringQueryOperatorInput>;
   gatsbyPath: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2724,6 +2734,12 @@ type MicrocmsWriterSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type MicrocmsBlogImageFilterInput = {
+  readonly url: Maybe<StringQueryOperatorInput>;
+  readonly height: Maybe<IntQueryOperatorInput>;
+  readonly width: Maybe<IntQueryOperatorInput>;
+};
+
 type MicrocmsBlogCategoryFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
@@ -2877,6 +2893,9 @@ type MicrocmsBlogFieldsEnum =
   | 'publishedAt'
   | 'revisedAt'
   | 'title'
+  | 'image.url'
+  | 'image.height'
+  | 'image.width'
   | 'body'
   | 'category.id'
   | 'category.createdAt'
@@ -2901,6 +2920,7 @@ type MicrocmsBlogFieldsEnum =
   | 'writer.bio'
   | 'writer.twitter'
   | 'blogId'
+  | 'description'
   | 'gatsbyPath';
 
 type MicrocmsBlogGroupConnection = {
@@ -2922,11 +2942,13 @@ type MicrocmsBlogFilterInput = {
   readonly publishedAt: Maybe<DateQueryOperatorInput>;
   readonly revisedAt: Maybe<DateQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
+  readonly image: Maybe<MicrocmsBlogImageFilterInput>;
   readonly body: Maybe<StringQueryOperatorInput>;
   readonly category: Maybe<MicrocmsBlogCategoryFilterInput>;
   readonly tags: Maybe<MicrocmsBlogTagsFilterListInput>;
   readonly writer: Maybe<MicrocmsBlogWriterFilterInput>;
   readonly blogId: Maybe<StringQueryOperatorInput>;
+  readonly description: Maybe<StringQueryOperatorInput>;
   readonly gatsbyPath: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3074,15 +3096,15 @@ type SiteBuildMetadataSortInput = {
 };
 
 type SitePluginPluginOptionsFilterInput = {
+  readonly base64Width: Maybe<IntQueryOperatorInput>;
+  readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
+  readonly defaultQuality: Maybe<IntQueryOperatorInput>;
+  readonly failOnError: Maybe<BooleanQueryOperatorInput>;
   readonly isTSX: Maybe<BooleanQueryOperatorInput>;
   readonly jsxPragma: Maybe<StringQueryOperatorInput>;
   readonly allExtensions: Maybe<BooleanQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
-  readonly base64Width: Maybe<IntQueryOperatorInput>;
-  readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
-  readonly defaultQuality: Maybe<IntQueryOperatorInput>;
-  readonly failOnError: Maybe<BooleanQueryOperatorInput>;
   readonly short_name: Maybe<StringQueryOperatorInput>;
   readonly start_url: Maybe<StringQueryOperatorInput>;
   readonly background_color: Maybe<StringQueryOperatorInput>;
@@ -3281,15 +3303,15 @@ type SitePluginFieldsEnum =
   | 'resolve'
   | 'name'
   | 'version'
+  | 'pluginOptions.base64Width'
+  | 'pluginOptions.stripMetadata'
+  | 'pluginOptions.defaultQuality'
+  | 'pluginOptions.failOnError'
   | 'pluginOptions.isTSX'
   | 'pluginOptions.jsxPragma'
   | 'pluginOptions.allExtensions'
   | 'pluginOptions.name'
   | 'pluginOptions.path'
-  | 'pluginOptions.base64Width'
-  | 'pluginOptions.stripMetadata'
-  | 'pluginOptions.defaultQuality'
-  | 'pluginOptions.failOnError'
   | 'pluginOptions.short_name'
   | 'pluginOptions.start_url'
   | 'pluginOptions.background_color'
@@ -3376,12 +3398,12 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type userskShibataprojectshouseofsrcpagesindexJsx591263698QueryVariables = Exact<{ [key: string]: never; }>;
+type userskShibataprojectshouseofsrcpagesindexJsx2857971068QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type userskShibataprojectshouseofsrcpagesindexJsx591263698Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
-        Pick<MicrocmsBlog, 'blogId' | 'title'>
-        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug'>> }
+type userskShibataprojectshouseofsrcpagesindexJsx2857971068Query = { readonly allMicrocmsBlog: { readonly edges: ReadonlyArray<{ readonly node: (
+        Pick<MicrocmsBlog, 'blogId' | 'title' | 'description'>
+        & { readonly category: Maybe<Pick<MicrocmsBlogCategory, 'slug' | 'name'>>, readonly image: Maybe<Pick<MicrocmsBlogImage, 'url'>>, readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name'>> }
       ) }> } };
 
 type userskShibataprojectshouseofsrcpagesusingTypescriptTsx2907560070QueryVariables = Exact<{ [key: string]: never; }>;
@@ -3394,13 +3416,6 @@ type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828QueryVariables
 
 type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
 
-type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
-
 type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
@@ -3410,6 +3425,13 @@ type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlo
     Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
     & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
   )> };
+
+type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
 
 type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
