@@ -301,16 +301,16 @@ type SitePage = Node & {
 type SitePageContext = {
   readonly slug: Maybe<Scalars['String']>;
   readonly id: Maybe<Scalars['String']>;
-  readonly writerId: Maybe<Scalars['String']>;
-  readonly _xparams: Maybe<SitePageContext_xparams>;
   readonly category__slug: Maybe<Scalars['String']>;
   readonly blogId: Maybe<Scalars['String']>;
+  readonly _xparams: Maybe<SitePageContext_xparams>;
+  readonly writerId: Maybe<Scalars['String']>;
 };
 
 type SitePageContext_xparams = {
-  readonly writerId: Maybe<Scalars['String']>;
   readonly category__slug: Maybe<Scalars['String']>;
   readonly blogId: Maybe<Scalars['String']>;
+  readonly writerId: Maybe<Scalars['String']>;
 };
 
 type ImageFormat =
@@ -3416,22 +3416,22 @@ type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828QueryVariables
 
 type userskShibataprojectshouseofsrcpageswritersindexJsx2881809828Query = { readonly allMicrocmsWriter: { readonly edges: ReadonlyArray<{ readonly node: Pick<MicrocmsWriter, 'name' | 'writerId'> }> } };
 
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx1255797572QueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx1255797572Query = { readonly microcmsBlog: Maybe<(
+    Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
+    & { readonly image: Maybe<Pick<MicrocmsBlogImage, 'url'>>, readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
+  )> };
+
 type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081QueryVariables = Exact<{
   id: Scalars['String'];
 }>;
 
 
 type userskShibataprojectshouseofsrcpageswritersmicrocmsWriterWriterIdJsx676387081Query = { readonly microcmsWriter: Maybe<Pick<MicrocmsWriter, 'bio' | 'name' | 'twitter'>> };
-
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009QueryVariables = Exact<{
-  id: Scalars['String'];
-}>;
-
-
-type userskShibataprojectshouseofsrcpagesmicrocmsBlogCategorySlugmicrocmsBlogBlogIdJsx4085133009Query = { readonly microcmsBlog: Maybe<(
-    Pick<MicrocmsBlog, 'blogId' | 'title' | 'body'>
-    & { readonly writer: Maybe<Pick<MicrocmsBlogWriter, 'name' | 'id'>>, readonly category: Maybe<Pick<MicrocmsBlogCategory, 'name' | 'slug'>> }
-  )> };
 
 type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
