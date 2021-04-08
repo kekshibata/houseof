@@ -1,34 +1,27 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import {
-  Container, Heading, Box, useColorModeValue,
+  Container,
 } from '@chakra-ui/react';
-import { StaticImage } from 'gatsby-plugin-image';
-import { ImgixGatsbyImage } from '@imgix/gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import Link from '../components/link';
 import BlogCard from '../components/blog-card';
 
-const IndexPage = ({ data }) => {
-  const headingColor = useColorModeValue('black', 'white');
+const IndexPage = ({ data }) => (
 
-  return (
+  <Layout>
+    <SEO title="Home" />
+    <Container px={7} py={[16, 20, 28]}>
 
-    <Layout>
-      <SEO title="Home" />
-      <Container px={7} py={[16, 20, 28]}>
+      {data.allMicrocmsBlog.edges.map(({ node }) => (
 
-        {data.allMicrocmsBlog.edges.map(({ node }) => (
+        <BlogCard key={node.blogId} imageUrl={node.image?.url} writer={node.writer.name} slug={node.category.slug} blogId={node.blogId} title={node.title} description={node.description} />
+      ))}
 
-          <BlogCard key={node.blogId} imageUrl={node.image?.url} writer={node.writer.name} slug={node.category.slug} blogId={node.blogId} title={node.title} description={node.description} />
-        ))}
-
-      </Container>
-    </Layout>
-  );
-};
+    </Container>
+  </Layout>
+);
 
 export default IndexPage;
 
