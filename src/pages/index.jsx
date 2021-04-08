@@ -4,6 +4,7 @@ import {
   Container, Heading, Box, useColorModeValue,
 } from '@chakra-ui/react';
 import { StaticImage } from 'gatsby-plugin-image';
+import { ImgixGatsbyImage } from '@imgix/gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import {
   Container, Heading, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Icon,
 } from '@chakra-ui/react';
+import { ImgixGatsbyImage } from '@imgix/gatsby';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { BsPersonFill } from 'react-icons/bs';
 import { AiFillHome } from 'react-icons/ai';
@@ -42,8 +43,8 @@ const BlogPage = ({ data }) => (
           {data.microcmsBlog.writer.name}
         </Link>
       </span>
+      <ImgixGatsbyImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} />
       <Heading mb={10}>
-
         {data.microcmsBlog.title}
       </Heading>
       <div id="blog-content" dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
@@ -57,6 +58,9 @@ export const query = graphql`
     query ($id:String!) {
         microcmsBlog(id:{eq:$id}){
             blogId
+            image {
+              url
+            }
             title
             body
             writer {
