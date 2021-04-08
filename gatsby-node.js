@@ -6,11 +6,11 @@
 
 // You can delete this file if you're not using it
 
-const path = require(`path`)
+const path = require('path');
 
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
-  const category = path.resolve(`./src/components/templates/category.jsx`)
+  const { createPage } = actions;
+  const category = path.resolve('./src/components/templates/category.jsx');
 
   const contentsResult = await graphql(`
     {
@@ -23,16 +23,15 @@ exports.createPages = async ({ actions, graphql }) => {
             }
         }
     }
-  `)
+  `);
 
-  contentsResult.data.allMicrocmsCategory.edges.forEach(({node}) => {
+  contentsResult.data.allMicrocmsCategory.edges.forEach(({ node }) => {
     createPage({
       path: `/${node.slug}`,
       component: category,
       context: {
         slug: node.slug,
       },
-    })
-  })
-
-}
+    });
+  });
+};

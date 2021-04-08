@@ -14,9 +14,18 @@ const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <Container px={7} py={[16, 20, 28]}>
+
       {data.allMicrocmsBlog.edges.map(({ node }) => (
 
-        <BlogCard key={node.blogId} imageUrl={node.image?.url} writer={node.writer.name} slug={node.category.slug} blogId={node.blogId} title={node.title} description={node.description} />
+        <BlogCard
+          key={node.blogId}
+          imageUrl={node.image?.url}
+          writer={node.writer.name}
+          slug={node.category.slug}
+          blogId={node.blogId}
+          title={node.title}
+          description={node.description}
+        />
       ))}
 
     </Container>
