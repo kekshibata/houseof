@@ -43,7 +43,7 @@ const BlogPage = ({ data }) => (
           {data.microcmsBlog.writer.name}
         </Link>
       </span>
-      <ImgixGatsbyImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} />
+      {data.microcmsBlog.image?.url && <ImgixGatsbyImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} /> }
       <Heading mb={10}>
         {data.microcmsBlog.title}
       </Heading>
