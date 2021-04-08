@@ -13,7 +13,6 @@ const BlogCard = (props) => {
 
     <LinkBox as="article" w="full" borderWidth="1px" rounded="md" pb="5" overflow="hidden" mb="5">
       {props.children}
-      {/* <GatsbyImage image={getGatsbyImageData({ src: props.imageUrl, layout: 'constrained', aspectRatio: 16 / 9 })} /> */}
       <Box>
         { props.imageUrl && <ImgixGatsbyImage src={props.imageUrl} layout="constrained" aspectRatio={16 / 9} />}
       </Box>
