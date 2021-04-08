@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import {
-  Container,
+  Container, Box,
 } from '@chakra-ui/react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BlogCard from '../components/blog-card';
+import Image from '../components/image';
 
 const IndexPage = ({ data }) => (
 
   <Layout>
     <SEO title="Home" />
     <Container px={7} py={[16, 20, 28]}>
-
       {data.allMicrocmsBlog.edges.map(({ node }) => (
 
         <BlogCard key={node.blogId} imageUrl={node.image?.url} writer={node.writer.name} slug={node.category.slug} blogId={node.blogId} title={node.title} description={node.description} />

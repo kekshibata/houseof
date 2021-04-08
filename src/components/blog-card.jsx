@@ -11,11 +11,13 @@ const BlogCard = (props) => {
   console.log(props.imageUrl);
   return (
 
-    <LinkBox as="article" w="full" borderWidth="1px" rounded="md" pb="5" overflow="hidden">
+    <LinkBox as="article" w="full" borderWidth="1px" rounded="md" pb="5" overflow="hidden" mb="5">
       {props.children}
       {/* <GatsbyImage image={getGatsbyImageData({ src: props.imageUrl, layout: 'constrained', aspectRatio: 16 / 9 })} /> */}
-      { props.imageUrl && <ImgixGatsbyImage src={props.imageUrl} layout="constrained" aspectRatio={16 / 9} />}
-      <Box as="time" dateTime="2021-01-15 15:30:00 +0000 UTC">
+      <Box>
+        { props.imageUrl && <ImgixGatsbyImage src={props.imageUrl} layout="constrained" aspectRatio={16 / 9} />}
+      </Box>
+      <Box as="span" ml="5">
         {props.writer}
       </Box>
       <Heading size="md" my="2" px="5">
