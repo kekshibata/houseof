@@ -1,5 +1,4 @@
 import { mode } from '@chakra-ui/theme-tools';
-import { nodeModuleNameResolver } from 'typescript';
 
 const styles = {
   global: (props) => ({

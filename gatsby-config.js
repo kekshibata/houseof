@@ -14,8 +14,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-typegen',
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -60,14 +59,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: 'gatsby-plugin-typescript',
-      options: {
-        isTSX: true, // defaults to false
-        jsxPragma: 'jsx', // defaults to "React"
-        allExtensions: true, // defaults to false
-      },
-    },
+
     {
       resolve: 'gatsby-source-microcms',
       options: {
@@ -88,7 +80,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-gatsby-cloud',
-    'gatsby-plugin-postcss',
     '@chakra-ui/gatsby-plugin',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
