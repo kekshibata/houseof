@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
 import {
-  Container, Box,
+  Container,
 } from '@chakra-ui/react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import BlogCard from '../components/blog-card';
-import Image from '../components/image';
 
 const IndexPage = ({ data }) => (
 
