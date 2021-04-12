@@ -8,6 +8,9 @@
 
 const path = require('path');
 
+const { paginate } = require('gatsby-awesome-pagination');
+
+// Category page
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const category = path.resolve('./src/components/templates/category.jsx');
@@ -32,6 +35,55 @@ exports.createPages = async ({ actions, graphql }) => {
       context: {
         slug: node.slug,
       },
+    });
+  });
+};
+
+// Category page 2
+exports.createPages = async ({ actions, graphql }) => {
+  const { createPage } = actions;
+  const category = path.resolve('./src/components/templates/categorytest.jsx');
+
+  const categories = graphql(`
+  {
+      allMicrocmsCategory {
+          edges {
+            node {
+              id
+              slug
+              name
+            }
+          }
+      }
+  }
+  `);
+
+  const contentsResult = categories.data.allMicrocmsCategory.edges.map(({ node }) => {
+    const { id } = node;
+
+    const result = graphql(`
+    query ($id: String!) {
+      allMicrocmsBlog(filter: {category: {id: {eq: $id}}}) {
+        edges {
+          node {
+            blogId
+            title
+          }
+        }
+      }
+    }
+  `);
+    return { id, result };
+  });
+
+  console.log(JSON.stringify(categories, null, 4));
+
+  contentsResult.forEach(({ contents }) => {
+    paginate({
+      createPage,
+      items: contents.result.data.allMicrocmsBlog.edges,
+      component: category,
+      pathPrefix: '/$(contents.id)',
     });
   });
 };
