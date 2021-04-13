@@ -39,6 +39,47 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 };
 
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  // Contentfulから記事を公開日時降順で取得する
+  const result = await graphql(`
+    {
+      allMicrocmsBlog{
+        edges {
+          node {
+            category {
+              slug
+              name
+            }
+            image {
+              url
+            }
+            blogId
+            title
+            description
+            writer {
+              name
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const posts = result.data.allMicrocmsBlog.edges;
+
+  // 記事リストページ生成
+  const template = path.resolve('src/components/templates/index.jsx');
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: 6,
+    component: template,
+    pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/paginated' : '/paginated/pages'),
+  });
+};
+
 // Category page 2
 /* exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
@@ -83,7 +124,7 @@ exports.createPages = async ({ actions, graphql }) => {
       createPage,
       items: contents.result.data.allMicrocmsBlog.edges,
       component: category,
-      pathPrefix: '/$(contents.id)',
+      pathPrefix: '/${contents.id}',
     });
   });
 };
