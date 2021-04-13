@@ -81,51 +81,55 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 
 // Category page 2
-/* exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const category = path.resolve('./src/components/templates/categorytest.jsx');
 
-  const categories = graphql(`
+  const categoriesResult = await graphql(`
   {
       allMicrocmsCategory {
           edges {
             node {
-              id
               slug
-              name
             }
           }
       }
   }
   `);
 
-  const contentsResult = categories.data.allMicrocmsCategory.edges.map(({ node }) => {
-    const { id } = node;
+  const categories = categoriesResult.data.allMicrocmsCategory.edges.map(({ node }) => node.slug);
 
+  console.log(categories);
+
+  const promiseResult = categories.map((slug) => {
+    console.log(slug);
     const result = graphql(`
-    query ($id: String!) {
-      allMicrocmsBlog(filter: {category: {id: {eq: $id}}}) {
-        edges {
-          node {
-            blogId
-            title
+      query ($categorySlug: String!) {
+        allMicrocmsBlog(filter: {category: {slug: {eq: $categorySlug}}}) {
+          edges {
+            node {
+              blogId
+              title
+            }
           }
         }
       }
-    }
-  `);
-    return { id, result };
+    `, { categorySlug: slug });
+    return result;
   });
 
-  console.log(JSON.stringify(categories, null, 4));
+  const contentsResult = await Promise.all(promiseResult);
 
-  contentsResult.forEach(({ contents }) => {
+  /*   console.log('result', JSON.stringify(await contentsResult)); */
+  /*   console.log('result', contentsResult); */
+  /*   console.log(finalResult[1].data.allMicrocmsBlog.edges); */
+
+  contentsResult.forEach(({ data }, i) => {
     paginate({
       createPage,
-      items: contents.result.data.allMicrocmsBlog.edges,
+      items: data.allMicrocmsBlog.edges,
       component: category,
-      pathPrefix: '/${contents.id}',
+      pathPrefix: `/${categories[i]}/paginated`,
     });
   });
 };
- */
