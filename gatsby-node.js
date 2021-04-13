@@ -40,7 +40,7 @@ exports.createPages = async ({ actions, graphql }) => {
 };
 
 // Category page 2
-exports.createPages = async ({ actions, graphql }) => {
+/* exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
   const category = path.resolve('./src/components/templates/categorytest.jsx');
 
@@ -87,3 +87,4 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   });
 };
+ */
