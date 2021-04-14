@@ -1,4 +1,4 @@
-import * as React from 'react';
+/* import * as React from 'react';
 import { graphql } from 'gatsby';
 
 import {
@@ -18,17 +18,17 @@ const Category = ({ data }) => {
       <SEO title="category" />
       <Container py={[16, 20, 28]}>
         <Heading as="h1">
-          {/* {data.microcmsCategory.name} */}
-          の記事一覧
+          {/* {data.microcmsCategory.name} */
+/*          の記事一覧
         </Heading>
         {data.allMicrocmsBlog.edges.map(({ node }) => (
           <Box key={node.blogId} p={5} w="100%">
 
             <Heading as="h3" fontSize="lg" color={headingColor}>
-              {/* <Link to={`/${node.category.slug}/${node.blogId}`}> */}
-              {node.title}
-              {/* </Link> */}
-            </Heading>
+              {/* <Link to={`/${node.category.slug}/${node.blogId}`}> */
+/*   {node.title}
+              {/* </Link> */
+/*   </Heading>
 
           </Box>
         ))}
@@ -51,3 +51,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+ */
