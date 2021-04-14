@@ -16,8 +16,8 @@ const BlogPage = ({ data }) => (
 
   <Layout>
     <SEO title={data.microcmsBlog.title} />
-    <Container px={7} py={[16, 20, 28]}>
-      <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />}>
+    <Container px={7} py={{ base: '20', lg: '28' }}>
+      <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} mb="2">
         <BreadcrumbItem>
           <Link to="/">
 
@@ -44,7 +44,7 @@ const BlogPage = ({ data }) => (
         </Link>
       </span>
       {data.microcmsBlog.image?.url && <ImgixGatsbyImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} /> }
-      <Heading mb={10}>
+      <Heading mt={4} mb={10}>
         {data.microcmsBlog.title}
       </Heading>
       <div id="blog-content" dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />

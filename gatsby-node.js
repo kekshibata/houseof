@@ -37,11 +37,48 @@ exports.createPages = async ({ actions, graphql }) => {
       },
     });
   });
+
+  // index page
+  const result = await graphql(`
+  {
+    allMicrocmsBlog{
+      edges {
+        node {
+          category {
+            slug
+            name
+          }
+          image {
+            url
+          }
+          blogId
+          title
+          description
+          writer {
+            name
+          }
+        }
+      }
+    }
+  }
+`);
+
+  const posts = result.data.allMicrocmsBlog.edges;
+
+  // 記事リストページ生成
+  const template = path.resolve('src/components/templates/index.jsx');
+  paginate({
+    createPage,
+    items: posts,
+    itemsPerPage: 6,
+    component: template,
+    pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/' : '/pages'),
+  });
 };
 
 // index page
 
-exports.createPages = async ({ graphql, actions }) => {
+/* exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -79,7 +116,7 @@ exports.createPages = async ({ graphql, actions }) => {
     component: template,
     pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/' : '/pages'),
   });
-};
+}; */
 
 // Category page 2
 /* exports.createPages = async ({ actions, graphql }) => {

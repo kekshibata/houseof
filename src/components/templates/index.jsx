@@ -61,7 +61,7 @@ const IndexPage = ({ data, pageContext }) => {
 
     <Layout>
       <SEO title="Home" />
-      <Container px={7} py={[16, 20, 28]}>
+      <Container px={7} py={{ base: '20', lg: '28' }}>
 
         {data.allMicrocmsBlog.edges.map(({ node }) => (
 
