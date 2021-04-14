@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
     items: posts,
     itemsPerPage: 6,
     component: template,
-    pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/paginated' : '/paginated/pages'),
+    pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/' : '/pages'),
   });
 };
 

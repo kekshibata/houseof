@@ -16,6 +16,7 @@
     "@imgix/gatsby": "^1.5.0",
     "@react-icons/all-files": "^4.1.0",
     "autoprefixer": "^10.2.5",
+    "chakra-paginator": "^0.6.3",
     "classnames": "^2.2.6",
     "framer-motion": "^3.10.5",
     "gatsby": "^3.0.0",
