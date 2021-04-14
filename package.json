@@ -19,7 +19,7 @@
     "chakra-paginator": "^0.6.3",
     "classnames": "^2.2.6",
     "framer-motion": "^3.10.5",
-    "gatsby": "^3.0.0",
+    "gatsby": "^3.3.0",
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-gatsby-cloud": "^2.0.0",
     "gatsby-plugin-image": "^1.0.0",

@@ -31,7 +31,7 @@ const accordionLinks = [
 
 const HeaderContent = () => {
   const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
-  const bg = useColorModeValue('bg', 'dark.bg');
+
   const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
@@ -51,7 +51,7 @@ const HeaderContent = () => {
           color: 'red.500',
         }}
       >
-        <Box ml={3} fontWeight="medium" fontSize="2xl" fontFamily='"Dela Gothic One", cursive'>
+        <Box ml={3} fontWeight="medium" fontSize="2xl" fontFamily='"Dela Gothic One"'>
           GunShooting
         </Box>
       </Link>
@@ -87,10 +87,7 @@ const HeaderContent = () => {
 };
 
 const Header = () => {
-  const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
   const bg = useColorModeValue('bg', 'dark.bg');
-  const logoColor = useColorModeValue('primary', 'dark.primary');
-  const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
     <>
