@@ -75,7 +75,7 @@ const IndexPage = ({ data, pageContext }) => {
             description={node.description}
           />
         ))}
-
+        {/* pagination */}
         <Paginator
           isDisabled={isPaginatorDisabled}
           activeStyles={activeStyles}
