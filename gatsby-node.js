@@ -50,6 +50,54 @@ exports.createPages = async ({ actions, graphql }) => {
     pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/' : '/pages'),
   });
 
+  // blog post page
+
+  const postResult = await graphql(`
+    {
+      allMicrocmsBlog {
+        edges {
+          next {
+            title
+            blogId
+            category {
+              slug
+            }
+          }
+          node {
+            blogId
+            id
+            category {
+              slug
+            }
+          }
+          previous {
+            title
+            blogId
+            category {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const post = postResult.data.allMicrocmsBlog.edges;
+
+  const blogPostTemplate = path.resolve('src/components/templates/blog-post.jsx');
+
+  post.forEach(({ node, next, previous }) => {
+    createPage({
+      path: `/${node.category.slug}/${node.blogId}`,
+      component: blogPostTemplate,
+      context: {
+        next,
+        previous,
+        id: node.id,
+      },
+    });
+  });
+
   // Category page
 
   const categoryResult = await graphql(`
@@ -58,7 +106,6 @@ exports.createPages = async ({ actions, graphql }) => {
       edges {
         node {
           slug
-          name
         }
       }
     }

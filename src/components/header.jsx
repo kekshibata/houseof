@@ -37,7 +37,7 @@ const HeaderContent = () => {
   return (
     <Container
       display="grid"
-      gridTemplateColumns="1fr 1fr"
+      gridTemplateColumns="auto auto"
       maxW="900px"
     >
       <Link
