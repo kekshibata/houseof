@@ -5,6 +5,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 
+// paginator
 import {
   Paginator,
   Previous,
@@ -12,11 +13,10 @@ import {
   PageGroup,
   Container as PaginatorContainer,
 } from 'chakra-paginator';
+
 import Layout from '../layout';
 import SEO from '../seo';
 import BlogCard from '../blog-card';
-
-// paginator
 
 const IndexPage = ({ data, pageContext }) => {
   // react hooks
@@ -92,7 +92,7 @@ const IndexPage = ({ data, pageContext }) => {
               前のページへ
               {/* Or an icon from `react-icons` */}
             </Previous>
-            <PageGroup isInline align="center" mx="1" />
+            <PageGroup isInline align="center" />
             <Next bg="red.300" as={Link} to={pageContext.nextPagePath}>
               次のページへ
               {/* Or an icon from `react-icons` */}
@@ -109,7 +109,7 @@ export default IndexPage;
 
 export const pageQuery = graphql`
   query($skip: Int!, $limit: Int!){
-    allMicrocmsBlog(skip: $skip, limit:$limit){
+    allMicrocmsBlog(sort: {order: DESC, fields: createdAt}, skip: $skip, limit:$limit){
       edges {
         node {
           category {

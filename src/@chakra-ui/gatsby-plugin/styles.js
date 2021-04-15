@@ -9,11 +9,11 @@ const styles = {
     },
     // non-chakra elements styles
     '#blog-content': {
-      fontWeight: 'normal',
-      lineHeight: '2em',
+      fontWeight: '500',
+      lineHeight: '1.8',
     },
     '#blog-content p': {
-      marginBottom: '1.5em',
+      marginBottom: '1.5rem',
     },
     '#blog-content ol': {
       listStylePosition: 'inside',

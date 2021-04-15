@@ -10,36 +10,11 @@ const path = require('path');
 
 const { paginate } = require('gatsby-awesome-pagination');
 
-// Category page
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-  const category = path.resolve('./src/components/templates/category.jsx');
-
-  const contentsResult = await graphql(`
-    {
-        allMicrocmsCategory {
-            edges {
-              node {
-                slug
-                name
-              }
-            }
-        }
-    }
-  `);
-
-  contentsResult.data.allMicrocmsCategory.edges.forEach(({ node }) => {
-    createPage({
-      path: `/${node.slug}`,
-      component: category,
-      context: {
-        slug: node.slug,
-      },
-    });
-  });
 
   // index page
-  const result = await graphql(`
+  const postsResult = await graphql(`
   {
     allMicrocmsBlog{
       edges {
@@ -61,11 +36,11 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   }
-`);
+  `);
 
-  const posts = result.data.allMicrocmsBlog.edges;
+  const posts = postsResult.data.allMicrocmsBlog.edges;
 
-  // 記事リストページ生成
+  // paginate index
   const template = path.resolve('src/components/templates/index.jsx');
   paginate({
     createPage,
@@ -73,6 +48,35 @@ exports.createPages = async ({ actions, graphql }) => {
     itemsPerPage: 6,
     component: template,
     pathPrefix: ({ pageNumber }) => (pageNumber === 0 ? '/' : '/pages'),
+  });
+
+  // Category page
+
+  const categoryResult = await graphql(`
+  {
+    allMicrocmsCategory {
+      edges {
+        node {
+          slug
+          name
+        }
+      }
+    }
+  }
+  `);
+
+  const categories = categoryResult.data.allMicrocmsCategory.edges;
+
+  const categoryTemplate = path.resolve('./src/components/templates/category.jsx');
+
+  categories.forEach(({ node }) => {
+    createPage({
+      path: `/${node.slug}`,
+      component: categoryTemplate,
+      context: {
+        slug: node.slug,
+      },
+    });
   });
 };
 
