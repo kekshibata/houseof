@@ -1,11 +1,11 @@
 import {
   Box,
   Container,
-
   Menu,
   MenuButton,
-
-  MenuItem, MenuList, useColorModeValue,
+  MenuItem,
+  MenuList,
+  useColorModeValue,
   useMediaQuery,
 } from '@chakra-ui/react';
 import { isBrowser } from '@chakra-ui/utils';

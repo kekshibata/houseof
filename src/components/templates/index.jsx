@@ -2,6 +2,7 @@ import * as React from 'react';
 import { graphql, Link, navigate } from 'gatsby';
 import {
   Container,
+  Divider,
   useColorModeValue,
 } from '@chakra-ui/react';
 
@@ -61,19 +62,22 @@ const IndexPage = ({ data, pageContext }) => {
 
     <Layout>
       <SEO title="Home" />
-      <Container px={7} py={{ base: '20', lg: '28' }}>
+      <Container py={{ base: '20', lg: '28' }}>
 
         {data.allMicrocmsBlog.edges.map(({ node }) => (
-
-          <BlogCard
-            key={node.blogId}
-            imageUrl={node.image?.url}
-            writer={node.writer.name}
-            slug={node.category.slug}
-            blogId={node.blogId}
-            title={node.title}
-            description={node.description}
-          />
+          <>
+            <BlogCard
+              key={node.blogId}
+              imageUrl={node.image?.url}
+              writer={node.writer.name}
+              slug={node.category.slug}
+              blogId={node.blogId}
+              title={node.title}
+              description={node.description}
+              createdAt={node.createdAt}
+            />
+            <Divider orientation="horizontal" mb="5" />
+          </>
         ))}
         {/* pagination */}
         <Paginator
@@ -122,6 +126,7 @@ export const pageQuery = graphql`
           blogId
           title
           description
+          createdAt(formatString: "YYYY/MM/DD")
           writer {
             name
           }
