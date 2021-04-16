@@ -15,6 +15,8 @@ import {
   Container as PaginatorContainer,
 } from 'chakra-paginator';
 
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+
 import Layout from '../layout';
 import SEO from '../seo';
 import BlogCard from '../blog-card';
@@ -93,13 +95,13 @@ const IndexPage = ({ data, pageContext }) => {
           onPageChange={handlePageChange}
         >
           <PaginatorContainer align="center" justify="space-between" w="full" p={4}>
-            <Previous bg="red.300" as={Link} to={pageContext.previousPagePath}>
-              前のページへ
+            <Previous bg="red.300" as={Link} to={pageContext.previousPagePath} disabled={!pageContext.previousPagePath}>
+              <ChevronLeftIcon />
               {/* Or an icon from `react-icons` */}
             </Previous>
             <PageGroup isInline align="center" />
             <Next bg="red.300" as={Link} to={pageContext.nextPagePath}>
-              次のページへ
+              <ChevronRightIcon />
               {/* Or an icon from `react-icons` */}
             </Next>
           </PaginatorContainer>
