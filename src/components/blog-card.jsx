@@ -8,7 +8,7 @@ import { BsPersonFill } from 'react-icons/bs';
 import { ImgixGatsbyImage } from '@imgix/gatsby';
 
 const BlogCard = ({
-  imageUrl, writer, slug, blogId, title, createdAt,
+  imageUrl, writer, slug, blogId, title, createdAt, categoryName,
 }) => (
 
   <LinkBox as="article" w="full" mt="20px">
@@ -20,7 +20,7 @@ const BlogCard = ({
         </LinkOverlay>
       </Heading>
       <Box as="dd">
-        <Tag variant="outline" fontWeight="semibold" colorScheme="red" rounded="sm">カテゴリ</Tag>
+        <Tag variant="outline" fontWeight="semibold" colorScheme="red" rounded="sm">{categoryName}</Tag>
         <HStack pt="10px" pb="40px" spacing="5" color={useColorModeValue('gray.600', 'gray.300')}>
           <Box as="time" display="flex" flexDirection="row" justify="flex-start" alignItems="center">
             <TimeIcon mr="1" />

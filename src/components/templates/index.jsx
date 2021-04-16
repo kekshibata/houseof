@@ -71,6 +71,7 @@ const IndexPage = ({ data, pageContext }) => {
               imageUrl={node.image?.url}
               writer={node.writer.name}
               slug={node.category.slug}
+              categoryName={node.category.name}
               blogId={node.blogId}
               title={node.title}
               description={node.description}
