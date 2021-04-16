@@ -13,9 +13,13 @@ import {
   useColorModeValue,
   useBreakpointValue,
   Divider,
+  chakra,
+  Tag,
+  HStack,
+  Text,
 } from '@chakra-ui/react';
 import { ImgixGatsbyImage } from '@imgix/gatsby';
-import { ChevronRightIcon, ChevronLeftIcon } from '@chakra-ui/icons';
+import { ChevronRightIcon, ChevronLeftIcon, TimeIcon } from '@chakra-ui/icons';
 import { BsPersonFill } from 'react-icons/bs';
 import { AiFillHome } from 'react-icons/ai';
 
@@ -27,10 +31,10 @@ const BlogPage = ({ data, pageContext }) => (
 
   <Layout>
     <SEO title={data.microcmsBlog.title} />
-    <Container px={7} py={{ base: '20', lg: '28' }}>
-
+    <Container py={{ base: '20', lg: '28' }}>
+      {data.microcmsBlog.image?.url && <ChakraImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} position="relative" w="calc(100% + 3rem)" left="-1.5rem" /> }
       {/* パンクズリスト　*/}
-      <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} mb="2">
+      <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} mt="10px" mb="2">
         <BreadcrumbItem>
           <Link to="/">
 
@@ -45,21 +49,25 @@ const BlogPage = ({ data, pageContext }) => (
         <BreadcrumbItem isCurrentPage>
           <BreadcrumbLink href="#">
             {data.microcmsBlog.title.length > 21 ? `${data.microcmsBlog.title.substr(0, 20)}...` : data.microcmsBlog.title }
-
           </BreadcrumbLink>
         </BreadcrumbItem>
       </Breadcrumb>
 
-      <span>
-        <Link to={`/writers/${data.microcmsBlog.writer.id}`}>
-          <Icon as={BsPersonFill} alignSelf="center" />
-          {data.microcmsBlog.writer.name}
-        </Link>
-      </span>
-      {data.microcmsBlog.image?.url && <ImgixGatsbyImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} /> }
-      <Heading mt={4} mb={10}>
+      <Heading size="lg">
         {data.microcmsBlog.title}
       </Heading>
+      <Tag mt="10px" variant="outline" fontWeight="semibold" colorScheme="red" rounded="sm">{data.microcmsBlog.category.name}</Tag>
+      <HStack pt="10px" pb="20px" spacing="5" color={useColorModeValue('gray.600', 'gray.300')}>
+        <Box as="time" display="flex" flexDirection="row" justify="flex-start" alignItems="center">
+          <TimeIcon mr="1" />
+          <Text display="inline-block">{data.microcmsBlog.createdAt}</Text>
+        </Box>
+        <Box as={GatsbyLink} to={`/writers/${data.microcmsBlog.writer.id}`} display="flex" flexDirection="row" justify="flex-start" alignItems="center">
+          <Icon as={BsPersonFill} mr="1" />
+          <Text display="inline-block">{data.microcmsBlog.writer.name}</Text>
+        </Box>
+      </HStack>
+
       <div id="blog-content" dangerouslySetInnerHTML={{ __html: `${data.microcmsBlog.body}` }} />
       {/* next and previous */}
       <Divider orientation="horizontal" />
@@ -91,6 +99,12 @@ const BlogPage = ({ data, pageContext }) => (
   </Layout>
 );
 
+const ChakraImage = chakra(ImgixGatsbyImage, {
+  baseStyle: {
+    rounded: 'none',
+  },
+});
+
 export default BlogPage;
 
 export const query = graphql`
@@ -110,6 +124,7 @@ export const query = graphql`
               name
               slug
             }
+            createdAt(formatString: "YYYY/MM/DD")
         }
     }
 `;
