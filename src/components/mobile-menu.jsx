@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import {
   IconButton,
   Flex,
@@ -7,6 +8,7 @@ import {
   CloseButton,
   Box,
   VStack,
+  Text,
 } from '@chakra-ui/react';
 import { AnimatePresence, motion, useElementScroll } from 'framer-motion';
 import { AiOutlineMenu } from '@react-icons/all-files/ai/AiOutlineMenu';
@@ -97,7 +99,7 @@ const ScrollView = (props) => {
       id="routes"
       overflow="auto"
       px="6"
-      pb="6"
+      py="6"
       {...rest}
     />
   );
@@ -124,14 +126,58 @@ const navigationlinks = [
 
 const ScrollContent = () => {
   const linkcolor = useColorModeValue('headingColor', 'dark.headingColor');
+  const data = useStaticQuery(graphql`
+  query {
+    allMicrocmsWriter {
+      edges {
+        node {
+          name
+          writerId
+        }
+      }
+    }
+    allMicrocmsCategory {
+      edges {
+        node {
+          slug
+          name
+        }
+      }
+    }
+  }
+`);
+  console.log('data', data);
+  const writers = data.allMicrocmsWriter.edges;
+  const categories = data.allMicrocmsCategory.edges;
 
   return (
-    <VStack spacing={10} align="flex-start" sx={{ 'a.active': { fontWeight: 'medium', color: linkcolor } }}>
-      {navigationlinks.map((n) => (
-        <Link key={n.slug} p={2} to={n.slug} activeClassName="active" partiallyActive={n.pActive}>
-          {n.name}
-        </Link>
-      ))}
+    <VStack spacing="6" align="flex-start" fontWeight="normal" sx={{ 'a.active': { color: 'red.500' } }}>
+      <Link p={2} to="/" textTransform="uppercase">
+        home
+      </Link>
+      <Link p={2} to="/about" activeClassName="active" partiallyActive="false" textTransform="uppercase">
+        about
+      </Link>
+      <VStack spacing="2" align="flex-start" fontWeight="normal">
+        <Text p={2} fontWeight="bold" fontSize="small" color={useColorModeValue('gray.500', 'gray.400')} textTransform="uppercase">
+          writers
+        </Text>
+        {writers.map(({ node }) => (
+          <Link key={node.writerId} p={2} to={`/writers/${node.writerId}`} activeClassName="active" partiallyActive="false">
+            {node.name}
+          </Link>
+        ))}
+      </VStack>
+      <VStack spacing="2" align="flex-start" fontWeight="normal">
+        <Text p={2} fontWeight="bold" fontSize="small" color={useColorModeValue('gray.500', 'gray.400')} textTransform="uppercase">
+          categories
+        </Text>
+        {categories.map(({ node }) => (
+          <Link key={node.slug} p={2} to={`/${node.slug}`} activeClassName="active" partiallyActive="false">
+            {node.name}
+          </Link>
+        ))}
+      </VStack>
     </VStack>
   );
 };
