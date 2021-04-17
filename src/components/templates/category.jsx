@@ -16,7 +16,7 @@ const Category = ({ data }) => {
 
     <Layout>
       <SEO title="category" />
-      <Container py={[16, 20, 28]}>
+      <Container py={{ base: '5', lg: '8' }}>
         <Heading as="h1">
           {data.microcmsCategory.name}
           の記事一覧
