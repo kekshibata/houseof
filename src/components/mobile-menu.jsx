@@ -131,7 +131,7 @@ const ScrollContent = () => {
   const categories = data.allMicrocmsCategory.edges;
 
   return (
-    <VStack spacing="6" align="flex-start" fontWeight="normal" sx={{ 'a.active': { color: 'red.500' } }}>
+    <VStack spacing="6" align="flex-start" fontWeight="normal" sx={{ 'a.active': { color: 'red.500' } }} pb="10">
       <Link p={2} to="/" textTransform="uppercase">
         home
       </Link>
