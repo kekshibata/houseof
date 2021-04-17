@@ -75,6 +75,9 @@ module.exports = {
           {
             endpoint: 'category',
           },
+          {
+            endpoint: 'pages',
+          },
         ],
 
       },
