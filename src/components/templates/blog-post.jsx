@@ -31,8 +31,8 @@ const BlogPage = ({ data, pageContext }) => (
 
   <Layout>
     <SEO title={data.microcmsBlog.title} />
-    {data.microcmsBlog.image?.url && <ChakraImage src={data.microcmsBlog.image.url} layout="constrained" top="70px" aspectRatio={16 / 9} w="full" display={useBreakpointValue({ base: 'block', md: 'none' })} /> }
-    <Container py={{ base: '20', lg: '28' }}>
+    {data.microcmsBlog.image?.url && <ChakraImage src={data.microcmsBlog.image.url} layout="constrained" top="0" aspectRatio={16 / 9} w="full" display={useBreakpointValue({ base: 'block', md: 'none' })} /> }
+    <Container py={{ base: '5', lg: '8' }}>
       {data.microcmsBlog.image?.url && <ChakraImage src={data.microcmsBlog.image.url} layout="constrained" aspectRatio={16 / 9} rounded="md" display={useBreakpointValue({ base: 'none', md: 'block' })} /> }
       {/* パンクズリスト　*/}
       <Breadcrumb spacing="8px" separator={<ChevronRightIcon color="gray.500" />} mt="10px" mb="2">

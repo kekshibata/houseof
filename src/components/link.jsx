@@ -9,7 +9,7 @@ const ChakraLink = chakra(GatsbyLink, {
     textDecoration: 'none',
     outline: 'none',
     _hover: {
-      textDecoration: 'underline',
+      textDecoration: 'none',
     },
     _focus: {
       boxShadow: 'outline',
