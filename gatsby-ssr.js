@@ -8,9 +8,9 @@
 
 // gatsby-ssr.js
 
-import React from "react"
-import theme from "/src/@chakra-ui/gatsby-plugin/theme"
-import { ColorModeScript } from "@chakra-ui/react"
+import React from 'react';
+import theme from '/src/@chakra-ui/gatsby-plugin/theme';
+import { ColorModeScript } from '@chakra-ui/react';
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
   setPreBodyComponents([
@@ -18,5 +18,5 @@ export const onRenderBody = ({ setPreBodyComponents }) => {
       initialColorMode={theme.config.initialColorMode}
       key="chakra-ui-no-flash"
     />,
-  ])
-}
+  ]);
+};
