@@ -105,27 +105,7 @@ const ScrollView = (props) => {
   );
 };
 
-const navigationlinks = [
-  {
-    name: 'HOME',
-    slug: '/',
-    pActive: false,
-  },
-  {
-    name: 'About',
-    slug: '/about',
-    pActive: false,
-  },
-  {
-    name: 'Writers',
-    slug: '/writers',
-    pActive: false,
-  },
-
-];
-
 const ScrollContent = () => {
-  const linkcolor = useColorModeValue('headingColor', 'dark.headingColor');
   const data = useStaticQuery(graphql`
   query {
     allMicrocmsWriter {
@@ -146,7 +126,7 @@ const ScrollContent = () => {
     }
   }
 `);
-  console.log('data', data);
+
   const writers = data.allMicrocmsWriter.edges;
   const categories = data.allMicrocmsCategory.edges;
 

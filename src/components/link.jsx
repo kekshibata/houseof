@@ -11,9 +11,6 @@ const ChakraLink = chakra(GatsbyLink, {
     _hover: {
       textDecoration: 'none',
     },
-    _focus: {
-      boxShadow: 'outline',
-    },
   },
 });
 
