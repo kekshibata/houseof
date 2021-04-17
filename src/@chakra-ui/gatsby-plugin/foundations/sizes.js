@@ -1,5 +1,5 @@
 const sizes = {
-  navigationHeight: '60px',
+  navigationHeight: '70px',
 };
 
 export default sizes;

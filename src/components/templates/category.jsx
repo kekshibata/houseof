@@ -1,22 +1,26 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+
 import {
   Container, Heading, Box, useColorModeValue,
 } from '@chakra-ui/react';
 
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import Link from '../components/link';
+import Layout from '../layout';
+import SEO from '../seo';
+import Link from '../link';
 
-const IndexPage = ({ data }) => {
-  const headingColor = useColorModeValue('black', 'white');
+const Category = ({ data }) => {
+  const headingColor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
 
     <Layout>
-      <SEO title="Home" />
-      <Container px={7} py={[16, 20, 28]}>
-
+      <SEO title="category" />
+      <Container py={[16, 20, 28]}>
+        <Heading as="h1">
+          {data.microcmsCategory.name}
+          の記事一覧
+        </Heading>
         {data.allMicrocmsBlog.edges.map(({ node }) => (
           <Box key={node.blogId} p={5} w="100%">
 
@@ -24,26 +28,29 @@ const IndexPage = ({ data }) => {
 
           </Box>
         ))}
-
       </Container>
     </Layout>
   );
 };
 
-export default IndexPage;
+export default Category;
 
 export const query = graphql`
-  query{
-    allMicrocmsBlog{
+  query($slug: String!){
+    allMicrocmsBlog(filter: {category: {slug: {eq: $slug}}}){
       edges {
         node {
           blogId
           title
           category {
-            slug
+              name
+              slug
           }
         }
       }
+    }
+    microcmsCategory (slug: {eq: $slug}){
+        name
     }
   }
 `;

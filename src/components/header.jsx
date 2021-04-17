@@ -1,18 +1,18 @@
-import * as React from 'react';
 import {
   Box,
   Container,
-  useColorModeValue,
-  useMediaQuery,
   Menu,
   MenuButton,
-  MenuList,
   MenuItem,
+  MenuList,
+  useColorModeValue,
+  useMediaQuery,
 } from '@chakra-ui/react';
 import { isBrowser } from '@chakra-ui/utils';
+import * as React from 'react';
 import Link from './link';
-import Navigation from './navigation';
 import MobileMenu from './mobile-menu';
+import Navigation from './navigation';
 
 const accordionLinks = [
   {
@@ -31,14 +31,14 @@ const accordionLinks = [
 
 const HeaderContent = () => {
   const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
-  const bg = useColorModeValue('bg', 'dark.bg');
-  const logoColor = useColorModeValue('primary', 'dark.primary');
+
   const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
     <Container
       display="grid"
-      gridTemplateColumns="1fr 1fr"
+      gridTemplateColumns="auto auto"
+      maxW="900px"
     >
       <Link
         to="/"
@@ -48,10 +48,10 @@ const HeaderContent = () => {
         color={linkColor}
         _hover={{
           textDecoration: 'none',
-          color: logoColor,
+          color: 'red.500',
         }}
       >
-        <Box ml={3} fontWeight="medium" fontSize="xl">
+        <Box ml={3} fontWeight="medium" fontSize="2xl" fontFamily='"Dela Gothic One"'>
           GunShooting
         </Box>
       </Link>
@@ -87,10 +87,7 @@ const HeaderContent = () => {
 };
 
 const Header = () => {
-  const [isSmallerThan640] = useMediaQuery('(max-width: 640px)');
   const bg = useColorModeValue('bg', 'dark.bg');
-  const logoColor = useColorModeValue('primary', 'dark.primary');
-  const linkColor = useColorModeValue('headingColor', 'dark.headingColor');
 
   return (
     <>
