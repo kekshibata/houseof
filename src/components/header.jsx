@@ -175,7 +175,7 @@ const Header = (props) => {
       shadow={y > height ? 'sm' : undefined}
       transition="box-shadow 0.2s, background-color 0.2s"
       pos="sticky"
-      top="0"
+      top="0px"
       zIndex="3"
       bg={bg}
       left="0"
