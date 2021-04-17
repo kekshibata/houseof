@@ -130,7 +130,7 @@ const HeaderContent = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <Flex w="100%" minHeight="4.5rem" maxHeight="6rem" px="6" justify="center" flexWrap="wrap">
+            <Flex w="100%" minHeight="4.5rem" px="6" justify="center" flexWrap="wrap">
               <HStack spacing="2" align="center" fontWeight="normal" mr="3">
                 <Text p={2} fontWeight="bold" fontSize="small" color={useColorModeValue('gray.500', 'gray.400')} textTransform="uppercase">
                   writers:
@@ -183,7 +183,7 @@ const Header = (props) => {
       width="full"
       {...props}
     >
-      <chakra.div mx="auto" maxW="1200px">
+      <chakra.div height={{ base: '4.5rem', md: 'auto' }} mx="auto" maxW="1200px">
         <HeaderContent />
       </chakra.div>
     </chakra.header>
